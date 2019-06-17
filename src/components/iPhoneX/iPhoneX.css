@@ -4,4 +4,5 @@
   background-color: #fff;
   border-radius: 45px;
   box-shadow: 100px 75px 150px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
 }

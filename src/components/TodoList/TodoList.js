@@ -1,11 +1,9 @@
 import React from 'react';
 
+import './TodoList.css';
+
 const TodoList = props => {
-  return (
-    <div className="TodoList">
-      <h1>TodoList component</h1>
-    </div>
-  );
+  return <div className="TodoList" />;
 };
 
 export default TodoList;

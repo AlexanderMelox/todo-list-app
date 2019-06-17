@@ -1,0 +1,29 @@
+.TodoHeader {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 35px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--ui-light-gray-02);
+}
+
+.TodoHeader__text {
+  font-weight: bold;
+  color: var(--ui-dark-gray-02);
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.TodoHeader__text--active {
+  color: var(--ui-dark-gray-01);
+}
+
+.TodoHeader::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: var(--color-primary);
+  width: 6px;
+  height: 43px;
+}

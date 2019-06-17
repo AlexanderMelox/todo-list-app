@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 
+import IPhoneX from './components/iPhoneX/iPhoneX';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Todo list</h1>
-      </header>
+      <IPhoneX>Inside iPhoneX container</IPhoneX>
     </div>
   );
 }

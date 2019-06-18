@@ -11,7 +11,7 @@
 .TodoHeader__text {
   font-weight: bold;
   color: var(--ui-dark-gray-02);
-  font-size: 40px;
+  font-size: 32px;
   cursor: pointer;
 }
 

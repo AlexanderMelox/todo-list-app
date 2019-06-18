@@ -1,6 +1,6 @@
 .IPhoneX {
-  width: 414px;
-  height: 896px;
+  width: calc(414px / 1.2);
+  height: calc(896px / 1.2);
   background-color: #fff;
   border-radius: 45px;
   box-shadow: 100px 75px 150px rgba(0, 0, 0, 0.1);

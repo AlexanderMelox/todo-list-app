@@ -5,4 +5,17 @@
   border-radius: 45px;
   box-shadow: 100px 75px 150px rgba(0, 0, 0, 0.1);
   overflow-x: hidden;
+  position: relative;
+}
+
+.IphoneX-bar {
+  position: absolute;
+  display: inline-block;
+  bottom: 15px;
+  width: 40%;
+  height: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
 }

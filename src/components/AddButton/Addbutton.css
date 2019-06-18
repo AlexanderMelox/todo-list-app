@@ -1,0 +1,35 @@
+.AddButton {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 60px;
+  right: 30px;
+  outline: none;
+  border: none;
+  padding: 0;
+  background-color: var(--color-primary);
+  border-radius: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.AddButton:hover {
+  opacity: 0.9;
+  transform: translateY(-5px);
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+}
+
+.AddButton:active {
+  transform: translateY(-2px);
+}
+
+.AddButton span {
+  margin-top: -5px;
+  font-size: 40px;
+  line-height: 1;
+  color: #fff;
+}

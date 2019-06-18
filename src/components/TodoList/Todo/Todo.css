@@ -3,8 +3,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 85px;
-  padding: 30px;
+  padding: 15px 30px;
   border-bottom: 1px solid var(--ui-light-gray-02);
   cursor: pointer;
   background-image: linear-gradient(120deg, var(--color-primary) 0%, var(--color-primary) 50%, transparent 50%);
@@ -30,8 +29,22 @@
 }
 
 .Todo-checkbox {
+  display: block;
   width: 30px;
   height: 30px;
   border: 5px solid var(--color-primary);
   border-radius: 5px;
+  position: relative;
+  background-color: transparent;
+}
+
+.Todo-checkbox::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  background-color: var(--ui-light-gray-01);
+  z-index: -1;
 }

@@ -10,10 +10,16 @@
   background-size: 0%;
   background-repeat: no-repeat;
   transition: 0.2s ease;
+  z-index: -1;
 }
 
 .Todo:hover {
   background-size: 150%;
+}
+
+.Todo--done {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
 .Todo-text {
@@ -29,13 +35,14 @@
 }
 
 .Todo-checkbox {
-  display: block;
+  display: inline-block;
   width: 30px;
   height: 30px;
   border: 5px solid var(--color-primary);
   border-radius: 5px;
   position: relative;
-  background-color: transparent;
+  z-index: 1;
+  transform-style: preserve-3d;
 }
 
 .Todo-checkbox::after {
@@ -43,8 +50,17 @@
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 5px;
+  left: 5px;
   background-color: var(--ui-light-gray-01);
   z-index: -1;
+  border-radius: 5px;
+  transform: translateZ(-1px);
+  transition: all 0.2s;
+}
+
+.Todo:hover .Todo-checkbox::after,
+.Todo--done .Todo-checkbox::after {
+  top: 0;
+  left: 0;
 }

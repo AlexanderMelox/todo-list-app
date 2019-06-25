@@ -18,10 +18,21 @@ todosArray.forEach(todo => (todo.id = cuid()));
 const TodoList = props => {
   const [todos, setTodos] = useState(todosArray);
 
+  const handleTodoClick = todoId => {
+    setTodos([
+      ...todos.map(todo => {
+        if (todo.id === todoId) {
+          todo.done = !todo.done;
+        }
+        return todo;
+      })
+    ]);
+  };
+
   return (
     <div className="TodoList">
       {todos.map(todo => (
-        <Todo key={todo.id} todo={todo} />
+        <Todo key={todo.id} todo={todo} handleTodoClick={handleTodoClick} />
       ))}
     </div>
   );

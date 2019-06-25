@@ -64,3 +64,18 @@
   top: 0;
   left: 0;
 }
+
+.Todo.item-enter {
+  opacity: 0;
+}
+.Todo.item-enter-active {
+  opacity: 1;
+  transition: all 200ms ease;
+}
+.Todo.item-exit {
+  transform: translateX(0);
+}
+.Todo.item-exit-active {
+  transform: translateX(100%);
+  transition: all 200ms ease;
+}

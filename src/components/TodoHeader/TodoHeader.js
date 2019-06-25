@@ -1,10 +1,21 @@
 import React from 'react';
+import classnames from 'classnames';
 import './TodoHeader.css';
 
-const TodoHeader = props => (
+const TodoHeader = ({ handleDoneFilter, showDone }) => (
   <div className="TodoHeader">
-    <span className="TodoHeader__text TodoHeader__text--active">To-do</span>
-    <span className="TodoHeader__text">Done</span>
+    <span
+      onClick={handleDoneFilter}
+      className={classnames('TodoHeader__text', { 'TodoHeader__text--active': !showDone })}
+    >
+      To-do
+    </span>
+    <span
+      onClick={handleDoneFilter}
+      className={classnames('TodoHeader__text', { 'TodoHeader__text--active': showDone })}
+    >
+      Done
+    </span>
   </div>
 );
 

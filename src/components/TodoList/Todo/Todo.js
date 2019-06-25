@@ -6,9 +6,11 @@ import CheckmarkIcon from '../../../assets/svg/CheckmarkIcon';
 
 const Todo = ({ todo, handleTodoClick }) => {
   return (
-    <div className={classnames('Todo', { 'Todo--done': todo.done })} onClick={() => handleTodoClick(todo.id)}>
+    <div className={classnames('Todo', { 'Todo--done': todo.done })}>
       <div className="Todo-text">{todo.text}</div>
-      <div className="Todo-checkbox">{todo.done && <CheckmarkIcon />}</div>
+      <div onClick={() => handleTodoClick(todo.id)} className="Todo-checkbox">
+        {todo.done && <CheckmarkIcon />}
+      </div>
     </div>
   );
 };

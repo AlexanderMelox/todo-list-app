@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import cuid from 'cuid';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import './TodoList.css';
 import Todo from './Todo/Todo';
@@ -15,7 +16,7 @@ const todosArray = [
 
 todosArray.forEach(todo => (todo.id = cuid()));
 
-const TodoList = props => {
+const TodoList = ({ showDone }) => {
   const [todos, setTodos] = useState(todosArray);
 
   const handleTodoClick = todoId => {
@@ -29,12 +30,30 @@ const TodoList = props => {
     ]);
   };
 
+  const renderList = () => {
+    let todoList;
+    if (showDone) {
+      todoList = [...todos.filter(todo => todo.done)];
+    } else {
+      todoList = [...todos.filter(todo => !todo.done)];
+    }
+    return todoList.map(todo => (
+      <CSSTransition timeout={200} classNames="item" key={todo.id}>
+        <Todo todo={todo} handleTodoClick={handleTodoClick} />
+      </CSSTransition>
+    ));
+  };
+
   return (
-    <div className="TodoList">
-      {todos.map(todo => (
-        <Todo key={todo.id} todo={todo} handleTodoClick={handleTodoClick} />
-      ))}
-    </div>
+    <TransitionGroup className="TodoList">
+      {todos.filter(todo => !todo.done).length === 0 ? (
+        <div className="Todo-finished">
+          <span>🎉 You did it! 🎉</span>
+        </div>
+      ) : (
+        renderList()
+      )}
+    </TransitionGroup>
   );
 };
 

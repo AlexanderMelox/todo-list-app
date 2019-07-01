@@ -19,6 +19,13 @@ todosArray.forEach(todo => (todo.id = cuid()));
 const TodoList = ({ showDone }) => {
   const [todos, setTodos] = useState(todosArray);
 
+  const handleTodoChange = (text, todoId) => {
+    let updatedTodos = [...todos];
+    let todoItem = updatedTodos.find(el => el.id === todoId);
+    todoItem.text = text;
+    setTodos(updatedTodos);
+  };
+
   const handleTodoClick = todoId => {
     setTodos([
       ...todos.map(todo => {
@@ -39,7 +46,7 @@ const TodoList = ({ showDone }) => {
     }
     return todoList.map(todo => (
       <CSSTransition timeout={200} classNames="item" key={todo.id}>
-        <Todo todo={todo} handleTodoClick={handleTodoClick} />
+        <Todo todo={todo} handleTodoClick={handleTodoClick} handleTodoChange={handleTodoChange} />
       </CSSTransition>
     ));
   };

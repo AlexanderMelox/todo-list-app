@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Icon = ({ name, className }) => {
+const Icon = props => {
   let icon;
-  switch (name) {
+  switch (props.name) {
     case 'checkmark':
       icon = (
         <svg
@@ -26,7 +26,7 @@ const Icon = ({ name, className }) => {
           aria-hidden="true"
           data-prefix="fas"
           data-icon="pencil-alt"
-          class="svg-inline--fa fa-pencil-alt fa-w-16"
+          className="svg-inline--fa fa-pencil-alt fa-w-16"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
         >
@@ -41,7 +41,7 @@ const Icon = ({ name, className }) => {
       icon = 'No Icon seleted.';
   }
 
-  return <span className={className}>{icon}</span>;
+  return <span {...props}>{icon}</span>;
 };
 
 export default Icon;

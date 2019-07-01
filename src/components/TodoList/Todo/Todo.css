@@ -23,10 +23,8 @@
 }
 
 .Todo-text {
-  font-weight: 600;
-  font-size: 20px;
   transition: 0.2s ease;
-  max-width: 300px;
+  max-width: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +39,25 @@
   color: var(--ui-light-gray-01);
   height: 20px;
   width: 20px;
+  margin-left: -20px;
+}
+
+.Todo-input {
+  font: inherit;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text-color);
+  border: none;
+  background-color: transparent;
+}
+
+.Todo:hover .Todo-input {
+  color: #fff;
+}
+
+.Todo-input:focus {
+  outline: none;
+  font-weight: bold;
 }
 
 .Todo-edit svg {

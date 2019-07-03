@@ -42,7 +42,7 @@ const TodoList = ({ showDone }) => {
     if (showDone) {
       todoList = [...todos.filter(todo => todo.done)];
     } else {
-      todoList = [...todos.filter(todo => !todo.done)];
+      todoList = todos;
     }
     return todoList.map(todo => (
       <CSSTransition timeout={200} classNames="item" key={todo.id}>

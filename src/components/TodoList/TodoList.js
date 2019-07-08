@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NewTodoForm from '../NewTodoForm/NewTodoForm';
 import cuid from 'cuid';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -16,7 +17,7 @@ const todosArray = [
 
 todosArray.forEach(todo => (todo.id = cuid()));
 
-const TodoList = ({ showDone }) => {
+const TodoList = ({ showDone, showNewTodo, handleShowTodoForm }) => {
   const [todos, setTodos] = useState(todosArray);
 
   const handleTodoChange = (text, todoId) => {
@@ -37,6 +38,15 @@ const TodoList = ({ showDone }) => {
     ]);
   };
 
+  const handleAddTodo = text => {
+    const todo = {
+      text,
+      done: false,
+      id: cuid()
+    };
+    setTodos([...todos, todo]);
+  };
+
   const renderList = () => {
     let todoList;
     if (showDone) {
@@ -52,15 +62,26 @@ const TodoList = ({ showDone }) => {
   };
 
   return (
-    <TransitionGroup className="TodoList">
-      {todos.filter(todo => !todo.done).length === 0 ? (
-        <div className="Todo-finished">
-          <span>🎉 You did it! 🎉</span>
-        </div>
-      ) : (
-        renderList()
-      )}
-    </TransitionGroup>
+    <>
+      <TransitionGroup className="TodoList">
+        {todos.filter(todo => !todo.done).length === 0 ? (
+          <div className="Todo-finished">
+            <span>
+              <span role="img" aria-label="celebration">
+                🎉
+              </span>
+              You did it!
+              <span role="img" aria-label="celebration">
+                🎉
+              </span>
+            </span>
+          </div>
+        ) : (
+          renderList()
+        )}
+      </TransitionGroup>
+      <NewTodoForm showNewTodo={showNewTodo} handleShowTodoForm={handleShowTodoForm} addTodo={handleAddTodo} />
+    </>
   );
 };
 

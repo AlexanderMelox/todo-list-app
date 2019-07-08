@@ -4,7 +4,6 @@ import './TodoApp.css';
 import TodoList from '../TodoList/TodoList';
 import TodoHeader from '../TodoHeader/TodoHeader';
 import AddButton from '../AddButton/AddButton';
-import NewTodoForm from '../NewTodoForm/NewTodoForm';
 
 const TodoApp = props => {
   const [showDone, setShowDone] = useState(false);
@@ -21,8 +20,7 @@ const TodoApp = props => {
   return (
     <div className="TodoApp">
       <TodoHeader showDone={showDone} handleDoneFilter={handleDoneFilter} />
-      <TodoList showDone={showDone} />
-      <NewTodoForm showNewTodo={showNewTodo} handleShowTodoForm={handleShowTodoForm} />
+      <TodoList showDone={showDone} showNewTodo={showNewTodo} handleShowTodoForm={handleShowTodoForm} />
       <AddButton handleShowTodoForm={handleShowTodoForm} />
     </div>
   );
